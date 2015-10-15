@@ -28,6 +28,8 @@ n = 1
 fin = codecs.open(calendar_file, "r", file_encoding)
 if fin:
   for line in fin:
+    # If the current line contains an event ID that needs fixing,
+    # replace the bad ID with a new unique ID.
     if re_uid.match(line):
       print(uid_string + str(n).zfill(3))
       n = n + 1 
